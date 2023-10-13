@@ -1,0 +1,10 @@
+select * from order_items;
+select customers.last_name,customers.phone,suppliers.contact_name,company_products.name
+from customers left join company_orders
+on company_orders.customer_id=customers.id 
+left join order_items
+on company_orders.id=order_items.order_id
+left join company_products
+on company_products.id =order_items.product_id
+join suppliers 
+on company_products.supplier_id=suppliers.id;
